@@ -17,14 +17,14 @@ docker run -d \
     marthoc/homeseer
 ```
 Options:
-`--name homeseer`: Names the container "homeseer".
-`-v /opt/homeseer:/HomeSeer`: Bind mount /opt/homeseer (or the directory of your choice) into the container for persistent storage. This directory on the host will contain the complete HomeSeer installation and could be moved between systems if necessary (be sure to shutdown HomeSeer cleanly first, via Tools - System - Shutdown HomeSeer).
-`-v /etc/localtime:/etc/localtime:ro`: Ensure the container has the correct localtime.
-`-p 80:80`: Port 80, used by the HomeSeer web user interface (specify a different WebUI listen port by changing the first number, e.g. `-p 8080:80` to listen on port 8080 instead).
-`-p 10200:10200`: Port 10200, used by HSTouch.
-`-p 10300:10300`: Port 10300, used by myHS.
-`-p 10401:10401`: Port 10401, used by speaker clients.
-`--device /dev/ttyUSB0`: Pass a USB device at /dev/ttyUSB0 (i.e. a USB Zwave interface) into the container; replace `ttyUSB0` with the actual name of your device (e.g. ttyUSB1, ttyACM0, etc.).
+`--name homeseer`: Names the container "homeseer".  
+`-v /opt/homeseer:/HomeSeer`: Bind mount /opt/homeseer (or the directory of your choice) into the container for persistent storage. This directory on the host will contain the complete HomeSeer installation and could be moved between systems if necessary (be sure to shutdown HomeSeer cleanly first, via Tools - System - Shutdown HomeSeer).  
+`-v /etc/localtime:/etc/localtime:ro`: Ensure the container has the correct localtime.  
+`-p 80:80`: Port 80, used by the HomeSeer web user interface (specify a different WebUI listen port by changing the first number, e.g. `-p 8080:80` to listen on port 8080 instead).  
+`-p 10200:10200`: Port 10200, used by HSTouch.  
+`-p 10300:10300`: Port 10300, used by myHS.  
+`-p 10401:10401`: Port 10401, used by speaker clients.  
+`--device /dev/ttyUSB0`: Pass a USB device at /dev/ttyUSB0 (i.e. a USB Zwave interface) into the container; replace `ttyUSB0` with the actual name of your device (e.g. ttyUSB1, ttyACM0, etc.).  
 
 ### Updating HomeSeer
 

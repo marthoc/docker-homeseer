@@ -31,12 +31,12 @@ docker run -d \
 ### Updating HomeSeer
 
 This image will be updated shortly after a new version of HomeSeer for Linux is released. To update, do...
-```
-docker stop homeseer [or, whatever name you gave to the container via the `--name` parameter]
-docker rm homeseer [or, whatever name you gave to the container via the `--name` parameter]
-docker pull marthoc/homeseer
-```
-...then re-create your container using the same command-line parameters used at first run. The new HomeSeer version will be downloaded and installed when the container is run.
+
+`docker stop homeseer` [or, whatever name you gave to the container via the `--name` parameter]
+`docker rm homeseer` [or, whatever name you gave to the container via the `--name` parameter]
+`docker pull marthoc/homeseer`
+
+...then re-create your container using the same command-line parameters used at first run. The new HomeSeer version will be downloaded and installed when the container is run. Your existing user data, plugins, etc., will be preserved.
 
 ### Gotchas / Known Issues
 

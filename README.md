@@ -2,6 +2,8 @@
 
 This image containerizes the HomeSeer HS3 home automation software. 
 
+Current HomeSeer version: HS3 3.0.0.368.
+
 ### Running the HomeSeer Container
 
 ```
@@ -54,9 +56,14 @@ To contribute, please fork the GitHub repo, create a feature branch, and raise a
 
 This image was inspired by @chasebolt's HomeSeer image (on Docker Hub at cbolt/homeseer), but differs in the following ways:
 - it takes a different approach to installing HomeSeer: this image allows mounting of the entire HomeSeer directory as a volume on the host, preserving installed Plugins across container deletion/creation and allowing simpler portability of the entire HomeSeer install across systems (simply stop the container and copy the entire host directory across systems). 
-- it includes an additional dependency required by the popular JowiHue plugin: libmono-system-data-datasetextensions4.0-cil.
+- it includes additional dependencies required by third-party plugins: `libmono-system-data-datasetextensions4.0-cil` and `mono-devel`.
 - it is based on the "slim" Docker build of Debian Stretch to save space.
 
 @krallin for his "tini" container init process: https://github.com/krallin/tini.
 
 HomeSeer for making great home automation software and allowing it to run on Linux!
+
+### Changelog
+
+18 January 2018: Initial release.
+19 January 2018: Added `mono-devel`.

@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     libmono-system-runtime-caching4.0-cil \
     libmono-system-web4.0.cil \
     libmono-system-web-extensions4.0-cil \
+    mono-devel \
     mono-vbnc \
     wget \
     && apt-get clean \

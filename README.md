@@ -2,7 +2,7 @@
 
 This image containerizes the HomeSeer HS3 home automation software. 
 
-Current HomeSeer version: HS3 3.0.0.368.
+Current HomeSeer version: **HS3 3.0.0.368**
 
 ### Running the HomeSeer Container
 
@@ -42,13 +42,11 @@ This image will be updated shortly after a new version of HomeSeer for Linux is 
 
 HomeSeer is fundamentally a Windows program that runs under the Mono framework on Linux. As such, it does not correctly respond to Unix signals (e.g. SIGTERM, SIGKILL, etc. ). For this reason, the `docker stop` command does not cleanly shutdown HomeSeer. Instead, shutdown HomeSeer cleanly via Tools - System - Shutdown HomeSeer, which will also stop the container.
 
-Some third-party plugins may fail to start or work properly because of missing Mono dependencies. Many plugin authors suggest installing `mono-complete` if this occurs. If one of your plugins fails, you can try to create the container using the `:complete` tag, which will pull a version of this image that contains `mono-complete` (i.e. instead of using `marthoc/homeseer` when creating the container, use `marthoc/homeseer:complete`). If the plugin then works, please raise an Issue on GitHub (see below) regarding the plugin so that the proper dependency can be found and added to the `latest` image.
-
-If the plugin still fails to work after using the `:complete` image, the problem may be with the Linux version of HomeSeer generally rather than with Docker specifically. Read the plugin instructions to determine if the plugin is compatible with the Linux version of HomeSeer and also search the HomeSeer forums to determine if there is a workaround required for the plugin to run on Linux.
+Some third-party plugins may fail to start or work properly because of missing Mono dependencies. If this happens, please raise an Issue on GitHub (see below) regarding the plugin and any errors thrown so that the proper dependency can be found and added to the image.
 
 HomeSeer will be reinstalled anytime the container is deleted and re-created; when the container runs for the first time, you will see "`HomeSeer (re)install/update required at container first run. Installing at /HomeSeer...`" in the container log. However, your existing user data, plugins, etc., will not be affected. Subsequent container runs after the first will log "`HomeSeer already installed, not (re)installing/updating...`".
 
-This image currently only runs on the amd64/x86_64 architecture (but a RaspberryPi compatible version is in the works).
+This image currently only runs on amd64/x86_64.
 
 ### Issues / Contributing
 
@@ -60,8 +58,7 @@ To contribute, please fork the GitHub repo, create a feature branch, and raise a
 
 This image was inspired by @chasebolt's HomeSeer image (on Docker Hub at cbolt/homeseer), but differs in the following ways:
 - it takes a different approach to installing HomeSeer: this image allows mounting of the entire HomeSeer directory as a volume on the host, preserving installed Plugins across container deletion/creation and allowing simpler portability of the entire HomeSeer install across systems (simply stop the container and copy the entire host directory across systems). 
-- it includes additional dependencies required by third-party plugins: `libmono-system-data-datasetextensions4.0-cil` and `mono-devel`.
-- it is based on the "slim" Docker build of Debian Stretch to save space.
+- it is based on mono:5 for increased compatibility.
 
 @krallin for his "tini" container init process: https://github.com/krallin/tini.
 
@@ -69,5 +66,6 @@ HomeSeer for making great home automation software and allowing it to run on Lin
 
 ### Changelog
 
-18 January 2018: Initial release.
-19 January 2018: Added `mono-devel`; created `:complete` tag including `mono-complete`.
+18 January 2018: Initial release.  
+19 January 2018: Added `mono-devel`; created `:complete` tag including `mono-complete`.  
+21 February 2018: Refactored `latest`, changed base image to mono:5.

@@ -2,7 +2,7 @@ FROM mono:5
 
 ENV TINI_VERSION=0.17.0
 ENV LANG=en_US.UTF-8
-ENV HOMESEER_VERSION=3_0_0_368
+ENV HOMESEER_VERSION=3_0_0_435
 
 RUN apt-get update && apt-get install -y \
     chromium \

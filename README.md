@@ -2,7 +2,7 @@
 
 This image containerizes the HomeSeer HS3 home automation software. 
 
-Current HomeSeer version: **HS3 3.0.0.368**
+Current HomeSeer version: **HS3 3.0.0.435**
 
 ### Running the HomeSeer Container
 

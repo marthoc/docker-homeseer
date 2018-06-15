@@ -14,4 +14,10 @@ else
 
 fi
 
+if [ "$ZEROCONF_ENABLED" = "TRUE" ]
+then 
+    service dbus start
+    service avahi-daemon start
+fi
+
 mono /HomeSeer/HSConsole.exe --log

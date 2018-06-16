@@ -16,7 +16,7 @@ docker run -d \
     -p 10300:10300 \
     -p 10401:10401 \
     --device /dev/ttyUSB0 \
-    marthoc/homeseer
+    marthoc/homeseer:latest
 ```
 #### Options:  
 `--name homeseer`: Names the container "homeseer".  
@@ -26,7 +26,15 @@ docker run -d \
 `-p 10200:10200`: Port 10200, used by HSTouch.  
 `-p 10300:10300`: Port 10300, used by myHS.  
 `-p 10401:10401`: Port 10401, used by speaker clients.  
-`--device /dev/ttyUSB0`: Pass a USB device at /dev/ttyUSB0 (i.e. a USB Zwave interface) into the container; replace `ttyUSB0` with the actual name of your device (e.g. ttyUSB1, ttyACM0, etc.).  
+`--device /dev/ttyUSB0`: Pass a USB device at /dev/ttyUSB0 (i.e. a USB Zwave interface) into the container; replace `ttyUSB0` with the actual name of your device (e.g. ttyUSB1, ttyACM0, etc.).
+`marthoc/homeseer:latest`: See below for descriptions of available image tags.
+
+### Available Image Tags
+
+| Tag | Description |
+|-----|-------------|
+| `latest` | The latest version of HomeSeer 3 for Linux |
+| `avahi` | Same as `latest`, but including avahi-daemon and dbus-daemon for wider plugin support |
 
 ### Updating HomeSeer
 
@@ -62,6 +70,8 @@ This image was inspired by @chasebolt's HomeSeer image (on Docker Hub at cbolt/h
 
 @krallin for his "tini" container init process: https://github.com/krallin/tini.
 
+@oznu for his implementation of avahi and dbus running under s6, which I shamelessly stole from his oznu/docker-homebridge project: https://github.com/oznu/docker-homebridge.
+
 HomeSeer for making great home automation software and allowing it to run on Linux!
 
 ### Changelog
@@ -69,3 +79,4 @@ HomeSeer for making great home automation software and allowing it to run on Lin
 18 January 2018: Initial release.  
 19 January 2018: Added `mono-devel`; created `:complete` tag including `mono-complete`.  
 21 February 2018: Refactored `latest`, changed base image to mono:5.
+15 June 2018: Added `avahi` tag.

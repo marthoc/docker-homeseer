@@ -14,4 +14,5 @@ else
 
 fi
 
-mono /HomeSeer/HSConsole.exe --log
+cd /HomeSeer
+mono HSConsole.exe --log

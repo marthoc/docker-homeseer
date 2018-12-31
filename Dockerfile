@@ -1,13 +1,19 @@
-FROM mono:5
+FROM mono:latest
 
 ENV TINI_VERSION=0.18.0
 ENV LANG=en_US.UTF-8
-ENV HOMESEER_VERSION=3_0_0_460
+ENV HOMESEER_VERSION=3_0_0_472
 
 RUN apt-get update && apt-get install -y \
     chromium \
     flite \
     wget \
+    nano \
+    iputils-ping \
+    mono-complete \
+    mono-vbnc \
+    mono-xsp4 \
+    avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

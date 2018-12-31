@@ -13,7 +13,10 @@ RUN apt-get update && apt-get install -y \
     mono-complete \
     mono-vbnc \
     mono-xsp4 \
-    avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan \
+    avahi-discover \
+    libavahi-compat-libdnssd-dev \
+    libnss-mdns \
+    avahi-daemon avahi-utils mdns-scan \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

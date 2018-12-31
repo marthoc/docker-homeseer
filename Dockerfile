@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     nano \
     iputils-ping \
-    mono-complete \
+    mosquitto-clients \
     mono-vbnc \
     mono-xsp4 \
     avahi-discover \

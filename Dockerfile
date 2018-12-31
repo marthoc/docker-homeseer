@@ -1,4 +1,4 @@
-FROM mono:latest
+FROM mono:5
 
 ENV S6_VERSION=v1.21.4.0
 ENV LANG=en_US.UTF-8

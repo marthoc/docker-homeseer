@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     nano \
     iputils-ping \
+    powerwake \
     mosquitto-clients \
     mono-vbnc \
     mono-xsp4 \

@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     iputils-ping \
     net-tools \
     etherwake \
+    ssh-client \
     mosquitto-clients \
     mono-vbnc \
     mono-xsp4 \

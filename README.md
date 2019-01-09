@@ -65,4 +65,5 @@ To contribute, please fork the GitHub repo, create a feature branch, and raise a
 This image was inspired by @marthoc's HomeSeer image (on Docker Hub at marthoc/homeseer)
 
 ### Changelog
+9 January 2019: Added Etherwake,SSH-Client and updated to HS3 Version - 3.0.0.478
 12 December 2018: Initial update release.

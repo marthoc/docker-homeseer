@@ -2,7 +2,7 @@
 
 This image containerizes the HomeSeer HS3 home automation software. 
 
-Current HomeSeer version: **HS3 3.0.0.478**
+Current HomeSeer version: **HS3 3.0.0.500**
 
 ### Running the HomeSeer Container
 
@@ -65,5 +65,6 @@ To contribute, please fork the GitHub repo, create a feature branch, and raise a
 This image was inspired by @marthoc's HomeSeer image (on Docker Hub at marthoc/homeseer)
 
 ### Changelog
+7 February 2019 Updated to version 3.0.0.500
 9 January 2019: Added Etherwake,SSH-Client and updated to HS3 Version - 3.0.0.478
 12 December 2018: Initial update release.

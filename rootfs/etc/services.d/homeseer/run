@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv sh
+
+# wait for services to come up
+sleep 2
+
+echo "Starting HomeSeer..."
+cd /HomeSeer
+exec mono ./HSConsole.exe --log

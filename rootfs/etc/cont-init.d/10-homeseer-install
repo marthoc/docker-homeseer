@@ -1,6 +1,8 @@
-#!/bin/sh
+#!/usr/bin/with-contenv sh
 
+# Install HomeSeer if container is started for the first time
 if [ -e /DO_INSTALL ]
+
 then
     echo "HomeSeer (re)install/update required at container first run. Installing at /HomeSeer..."
 
@@ -13,5 +15,3 @@ else
     echo "HomeSeer already installed, not (re)installing/updating..."
 
 fi
-
-mono /HomeSeer/HSConsole.exe --log

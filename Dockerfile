@@ -1,4 +1,4 @@
-FROM mono:5
+FROM mono:5.18.0.225
 
 ENV S6_VERSION=v1.21.4.0
 ENV LANG=en_US.UTF-8
@@ -35,6 +35,6 @@ ARG AVAHI
 RUN [ "${AVAHI:-1}" = "1" ] || (echo "Removing Avahi" && rm -rf /etc/services.d/avahi /etc/services.d/dbus)
 
 VOLUME [ "/HomeSeer" ] 
-EXPOSE 80 10200 10300 10401
+EXPOSE 80 10200 10300 10401 11000
 
 ENTRYPOINT [ "/init" ]

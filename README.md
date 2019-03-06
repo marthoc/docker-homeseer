@@ -15,8 +15,9 @@ docker run -d \
     -p 10200:10200 \
     -p 10300:10300 \
     -p 10401:10401 \
+    -p 11000:11000 \
     --device /dev/ttyUSB0 \
-    e1ite/docker-homeseer:latest
+    marthoc/homeseer:latest
 ```
 #### Options:  
 `--name homeseer`: Names the container "homeseer".  
@@ -26,8 +27,9 @@ docker run -d \
 `-p 10200:10200`: Port 10200, used by HSTouch.  
 `-p 10300:10300`: Port 10300, used by myHS.  
 `-p 10401:10401`: Port 10401, used by speaker clients.  
-`--device /dev/ttyUSB0`: Pass a USB device at /dev/ttyUSB0 (i.e. a USB Zwave interface) into the container; replace `ttyUSB0` with the actual name of your device (e.g. ttyUSB1, ttyACM0, etc.).
-`e1ite/docker-homeseer:latest`: See below for descriptions of available image tags.
+`-p 11000:11000`: Port 11000, used by the ASCII interface.  
+`--device /dev/ttyUSB0`: Pass a USB device at /dev/ttyUSB0 (i.e. a USB Z-Wave interface) into the container; replace `ttyUSB0` with the actual name of your device (e.g. ttyUSB1, ttyACM0, etc.).  
+`marthoc/homeseer:latest`: See below for descriptions of available image tags.
 
 ### Available Image Tags
 
@@ -42,7 +44,7 @@ This image will be updated shortly after a new version of HomeSeer for Linux is 
 
 `docker stop homeseer` [or, whatever name you gave to the container via the `--name` parameter]
 `docker rm homeseer` [or, whatever name you gave to the container via the `--name` parameter]
-`docker pull e1ite/docker-homeseer`
+`docker pull marthoc/homeseer`
 
 ...then re-create your container using the same command-line parameters used at first run. The new HomeSeer version will be downloaded and installed when the container is run. Your existing user data, plugins, etc., will be preserved.
 
@@ -56,15 +58,17 @@ This image currently only runs on amd64/x86_64.
 
 ### Issues / Contributing
 
-Please raise any issues with this container, including any missing plugin dependencies, at its GitHub repo: https://github.com/e1ite/docker-homeseer. Please check the "Gotchas / Known Issues" section above before raising an Issue on GitHub in case the issue is already known.
+Please raise any issues with this container, including any missing plugin dependencies, at its GitHub repo: https://github.com/marthoc/docker-homeseer. Please check the "Gotchas / Known Issues" section above before raising an Issue on GitHub in case the issue is already known.
 
 To contribute, please fork the GitHub repo, create a feature branch, and raise a Pull Request; for simple changes/fixes, it may be more effective to raise an Issue instead.
 
 ### Acknowledgments
 
-This image was inspired by @marthoc's HomeSeer image (on Docker Hub at marthoc/homeseer)
+Many improvements to this image have been made by @E1iTeDa357, including the addition of Avahi and dbus for wider plugin support, and converting the image to use s6-overlay.
 
 ### Changelog
-7 February 2019 Updated to version 3.0.0.500
-9 January 2019: Added Etherwake,SSH-Client and updated to HS3 Version - 3.0.0.478
-12 December 2018: Initial update release.
+18 January 2018: Initial release.  
+19 January 2018: Added mono-devel.  
+21 February 2018: Refactored latest, changed base image to mono:5.  
+6 March 2019: Bumped to HS3 3.0.0.500; added Avahi and dbus; changed to s6-overlay; pinned Mono base image to prevent unintended breakage.  
+
